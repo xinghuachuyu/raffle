@@ -1,0 +1,248 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* #region 可视区域 start */
+.main {
+  height: 546px;
+  width: 100%;
+  position: relative;
+  background-image: url(./img/banner-bg.jpg);
+}
+
+.container {
+  background-image: url(./img/bg.png);
+  width: 874px;
+  height: 458px;
+  position: absolute;
+  /* 居中对齐方式1 */
+  /* left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto; */
+  /* 居中对齐方式2 */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* #endregion 可视区域 end */
+/* #region 奖品列表 start */
+.prize.active {
+  background-color: yellow;
+}
+
+.prize.active span {
+  color: #622230;
+}
+
+.prize {
+  width: 270px;
+  height: 100px;
+  position: absolute;
+  padding: 5px;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: #622230;
+  border: 1px solid #722536;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.prize>img {
+  max-height: 75px;
+  position: absolute;
+  top: 15px;
+  left: 30px;
+}
+
+.prize span {
+  font-size: 19px;
+  color: #ffb100;
+  position: absolute;
+  top: 36px;
+  left: 102px;
+  width: 164px;
+}
+
+.prize:nth-child(4)>img,
+.prize:nth-child(8)>img {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.prize:nth-child(4)>span,
+.prize:nth-child(8)>span {
+  left: 50%;
+  transform: translateX(-50%);
+  /* 绝对定位元素的top和bottom最好不能一起设置，要规范 */
+  /* bottom: 36px;
+  top: auto; */
+  top: 130px;
+}
+
+.prize:nth-child(1) {
+  left: 26px;
+  top: 22px;
+}
+
+.prize:nth-child(2) {
+  left: 302px;
+  top: 22px;
+}
+
+.prize:nth-child(3) {
+  right: 26px;
+  top: 22px;
+}
+
+.prize:nth-child(4) {
+  width: 100px;
+  height: 200px;
+  right: 26px;
+  top: 129px;
+}
+
+.prize:nth-child(5) {
+  right: 26px;
+  bottom: 22px;
+}
+
+.prize:nth-child(6) {
+  left: 302px;
+  bottom: 22px;
+}
+
+.prize:nth-child(7) {
+  left: 22px;
+  bottom: 22px;
+}
+
+.prize:nth-child(8) {
+  width: 100px;
+  height: 200px;
+  left: 26px;
+  top: 129px;
+}
+
+/* #endregion 奖品列表 end */
+/* #region 中间区域 start */
+.controller-container {
+  width: 614px;
+  height: 198px;
+  background-image: url(./img/middle-bg.png);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.controller-left {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+}
+
+.controller-right {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.handler-container-middle {
+  color: #ffd200;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 17px 0 0 18px;
+  /* 行内元素的上下margin无效，左右margin可以 */
+  /* 可以考虑用浮动 */
+  float: right;
+}
+
+/* #endregion 中间区域 end */
+/* #region 遮罩层 start */
+.mask {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  left: 0;
+  top: 0;
+  display: none;
+}
+
+.mask-content {
+  width: 400px;
+  background-color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mask .header {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background-color: #e99c3d;
+  border-bottom: 1px solid #ddd;
+  padding: 0 20px;
+}
+
+.mask .header span:first-child {
+  color: #ddd;
+  float: left;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.mask .header span:last-child {
+  float: right;
+  font-size: 42px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #ddd;
+}
+
+.mask .mask-middle {
+  text-align: center;
+  margin: 20px;
+  color: #622230;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.mask-btn {
+  text-align: right;
+  margin: 20px;
+}
+
+.mask-btn button {
+  background-color: #fca825;
+  height: 28px;
+  cursor: pointer;
+  line-height: 28px;
+  color: #fff;
+  padding: 0 10px;
+  border-radius: 3px;
+  border: none;
+}
+
+/* #endregion 遮罩层 end */
